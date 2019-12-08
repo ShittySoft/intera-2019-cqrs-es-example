@@ -1,0 +1,23 @@
+{
+  "name": "intera-2019-cqrs-es-example/voucher",
+  "description": "Voucher aggregate logic for the Intera CQRS+ES Workshop of December 2019",
+  "license": "proprietary",
+  "require": {
+    "php": "^7.2",
+    "prooph/event-sourcing": "^5.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Voucher\\": "src/Voucher"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "platform": {
+      "php": "7.2.0"
+    }
+  },
+  "require-dev": {
+    "vimeo/psalm": "^3.7"
+  }
+}
