@@ -20,6 +20,7 @@ final class Round extends AggregateRoot
     private $roundConfig;
 
 
+
     public static function new(int $roundNumber, RouletteConfigInterface $rouletteConfig) : self
     {
         $self = new self();
@@ -45,6 +46,21 @@ final class Round extends AggregateRoot
     public function startRound() : void
     {
         $this->recordThat(RoundStarted::now($this->uuid));
+    }
+
+    protected function whenRoundStarted(RoundStarted $event)
+    {
+        $this->uuid = Uuid::fromString($event->aggregateId());
+    }
+
+    public function startBetting() : void
+    {
+        $this->recordThat(BettingStarted::now($this->uuid));
+    }
+
+    protected function whenBettingStarted(BettingStarted $event)
+    {
+        $this->uuid = Uuid::fromString($event->aggregateId());
     }
 
 }
