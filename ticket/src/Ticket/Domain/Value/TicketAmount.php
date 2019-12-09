@@ -6,7 +6,7 @@ namespace Ticket\Domain\Value;
 
 use \InvalidArgumentException;
 
-class TicketAmount
+final class TicketAmount
 {
     /**
      * @var int

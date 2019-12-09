@@ -6,7 +6,7 @@ use Prooph\EventSourcing\AggregateChanged;
 use Ramsey\Uuid\Uuid;
 use Ticket\Domain\Value\TicketAmount;
 
-class TicketPlaced extends AggregateChanged
+final class TicketPlaced extends AggregateChanged
 {
     public static function withAmount(Uuid $ticket, TicketAmount $amount)
     {
