@@ -6,6 +6,7 @@ use Prooph\EventSourcing\AggregateChanged;
 use Prooph\EventSourcing\AggregateRoot;
 use Ramsey\Uuid\Uuid;
 use Ticket\Domain\DomainEvent\BetRemoved;
+use Ticket\Domain\DomainEvent\BetCanceled;
 
 final class Ticket extends AggregateRoot
 {
@@ -23,7 +24,15 @@ final class Ticket extends AggregateRoot
         $this->recordThat(BetRemoved::fromTicket($this->uuid, $name));
     }
 
+    public function cancelBet(string $name) {
+        $this->recordThat(BetCanceled::onTicket($this->uuid, $name));
+    }
+
     protected function whenBetRemoved(BetRemoved $event) {
-        
+
+    }
+
+    protected function whenBetCanceled(BetCanceled $event) {
+
     }
 }
