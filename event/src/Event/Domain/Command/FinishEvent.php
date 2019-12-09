@@ -49,6 +49,12 @@ final class FinishEvent extends Command
         return $this->type;
     }
 
+    protected function setPayload(array $payload) : void
+    {
+        $this->id = EventId::fromString($payload['id']);
+        $this->type = EventType::create($payload['type']);
+    }
+
     /**
      * {@inheritDoc}
      */
