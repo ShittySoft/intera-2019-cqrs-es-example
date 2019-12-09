@@ -13,12 +13,12 @@ class BalanceCreated extends AggregateChanged
         return self::occur($balanceUuid->toString(), ['user' => $userId->toString(), 'amount' => $amount]);
     }
 
-    public function balance() : int
+    public function amount() : int
     {
         return $this->payload['amount'];
     }
 
-    public function userid() : Uuid
+    public function userId() : Uuid
     {
         return Uuid::fromString($this->payload['user']);
     }
