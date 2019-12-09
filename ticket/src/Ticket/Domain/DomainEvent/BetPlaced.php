@@ -22,9 +22,4 @@ class BetPlaced extends AggregateChanged
     public function odd() : float {
         return $this->payload['odd'];
     }
-
-    public function ticketId() : Uuid
-    {
-        return Uuid::fromString($this->aggregateId());
-    }
 }
