@@ -12,7 +12,7 @@ use Event\Domain\Value\EventId;
       return self::occur($event->toString());
     }
 
-    public function event() : string {
+    public function event() : EventId {
       return EventId::fromString($this->aggregateId());
     }
 
