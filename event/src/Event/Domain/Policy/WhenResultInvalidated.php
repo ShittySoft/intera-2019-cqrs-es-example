@@ -8,8 +8,11 @@ use Event\Domain\DomainEvent\EventResultInvalidated;
 
 final class WhenResultInvalidated
 {
+    /**
+     * @param EventResultInvalidated $eventResultInvalidated
+     */
     public function __invoke(EventResultInvalidated $eventResultInvalidated)
     {
-        // TODO: Implement __invoke() method.
+        throw new \BadMethodCallException('Missing method implementation.');
     }
 }

@@ -8,8 +8,11 @@ use Event\Domain\DomainEvent\EventResultReceived;
 
 final class WhenResultsReceived
 {
+    /**
+     * @param EventResultReceived $eventResultReceived
+     */
     public function __invoke(EventResultReceived $eventResultReceived)
     {
-        // TODO: Implement __invoke() method.
+        throw new \BadMethodCallException('Missing method implementation.');
     }
 }
