@@ -6,10 +6,10 @@ use Prooph\EventSourcing\AggregateChanged;
 use Prooph\EventSourcing\AggregateRoot;
 use Roulette\Domain\ReadModel\RouletteConfigInterface;
 use Roulette\Domain\ReadModel\RoundConfigInterface;
+use Webmozart\Assert\Assert;
 
 final class Round extends AggregateRoot
 {
-
     /** @var Uuid */
     private $uuid;
 
@@ -19,7 +19,8 @@ final class Round extends AggregateRoot
     /** @var RoundConfigInterface */
     private $roundConfig;
 
-
+    /** @var int */
+    private $state;
 
     public static function new(int $roundNumber, RouletteConfigInterface $rouletteConfig) : self
     {
@@ -34,33 +35,39 @@ final class Round extends AggregateRoot
         return $this->uuid->toString();
     }
 
-    protected function whenRoundScheduled(RoundScheduled $event)
-    {
-        $this->uuid = Uuid::fromString($event->aggregateId());
-        $this->roundNumber = $event->roundNumber();
-
-        //TODO: create RoundConfig from RouletteConfig
-        //$this->roundConfig = $event->rouletteConfig();
-    }
-
     public function startRound() : void
     {
-        $this->recordThat(RoundStarted::now($this->uuid));
-    }
+        Assert::eq($this->state, 0, "Current state is not Scheduled");
 
-    protected function whenRoundStarted(RoundStarted $event)
-    {
-        $this->uuid = Uuid::fromString($event->aggregateId());
+        $this->recordThat(RoundStarted::now($this->uuid));
     }
 
     public function startBetting() : void
     {
+        Assert::eq($this->state, 1, "Current state is not Started");
+
         $this->recordThat(BettingStarted::now($this->uuid));
     }
 
-    protected function whenBettingStarted(BettingStarted $event)
+    protected function apply(AggregateChanged $event) : void
     {
-        $this->uuid = Uuid::fromString($event->aggregateId());
+        if ($event instanceof RoundScheduled) {
+            $this->uuid = Uuid::fromString($event->aggregateId());
+            $this->roundNumber = $event->roundNumber();
+            $this->state = 0; //Scheduled
+            //TODO: create RoundConfig from RouletteConfig
+            //$this->roundConfig = $event->rouletteConfig();
+            return;
+        }
+        if ($event instanceof RoundStarted) {
+            $this->state = 1; //Started
+            return;
+        }
+        if ($event instanceof BettingStarted) {
+            $this->state = 2; //Betting
+            return;
+        }
+        throw new \UnexpectedValueException(sprintf('Unknown event type "%s"', get_class($event)));
     }
 
 }
