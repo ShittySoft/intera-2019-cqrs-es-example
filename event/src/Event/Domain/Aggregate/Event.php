@@ -5,6 +5,8 @@ namespace Event\Domain\Aggregate;
 use Event\Domain\Command\DisableBetting;
 use Event\Domain\Command\EnableBetting;
 use Event\Domain\Command\ScheduleEvent;
+use Event\Domain\DomainEvent\EventScheduled;
+use Event\Domain\DomainEvent\OddsCreated;
 use Event\Domain\Value\BettingDisabled;
 use Event\Domain\Value\BettingEnabled;
 use Event\Domain\Value\EventId;
@@ -24,9 +26,15 @@ final class Event extends AggregateRoot
     {
         $instance = new self();
 
-        // @TODO "events scheduled" and "odds created" needed here
+        $this->recordThat(EventScheduled::forType(
+            $schedule->id(),
+            $schedule->type()
+        ));
 
-        throw new \BadFunctionCallException('"events scheduled" and "odds created" needed here');
+        $this->recordThat(OddsCreated::forEvent(
+            $schedule->id(),
+            $schedule->odds()
+        ));
 
         return $instance;
     }
