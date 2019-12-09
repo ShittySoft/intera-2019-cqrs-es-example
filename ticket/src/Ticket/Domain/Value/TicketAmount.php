@@ -3,8 +3,8 @@
 
 namespace Ticket\Domain\Value;
 
-
 use \InvalidArgumentException;
+use Webmozart\Assert\Assert;
 
 final class TicketAmount
 {
@@ -21,25 +21,39 @@ final class TicketAmount
     /**
      * TicketAmount constructor.
      */
-    public function __construct(int $amount)
+    private function __construct(int $amount)
     {
-        if($amount <= 0) {
-            throw new InvalidArgumentException("Amount must be positive integer");
-        }
-
         $this->amount = $amount;
     }
 
-    public function toArray(): array
+    /**
+     * @param int $amount
+     * @return static
+     */
+    public static function withAmount(int $amount): self
     {
-        return [
-            "amount" => $this->amount,
-            "currency" => $this->currency
-        ];
+        Assert::integer($amount);
+
+        if($amount <= 0) {
+            throw new InvalidArgumentException("Amount must be positive integer");
+        }
     }
 
-    public static function fromArray(array $ticketAmountArray): self
+    /**
+     * @return int
+     */
+    public function amount(): int
     {
-        return new self($ticketAmountArray["amount"]);
+        return $this->amount;
     }
+
+    /**
+     * @return string
+     */
+    public function currency(): string
+    {
+        return $this->currency;
+    }
+
+
 }
