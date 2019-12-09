@@ -6,7 +6,6 @@ namespace Event\Domain\DomainEvent;
 
 use Event\Domain\Value\EventId;
 use Event\Domain\Value\EventOdds;
-use Event\Domain\Value\EventResult;
 use Event\Domain\Value\EventType;
 use Prooph\EventSourcing\AggregateChanged;
 
