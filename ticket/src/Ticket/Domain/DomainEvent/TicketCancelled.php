@@ -9,13 +9,8 @@ use Prooph\EventSourcing\AggregateChanged;
 
 final class TicketCancelled extends AggregateChanged
 {
-    public static function removeTicket(Ticket $ticket, string $username) : self
+    public static function removeTicket(Ticket $ticket) : self
     {
-        return self::occur($ticket->aggregateId(), ['username' => $username]);
-    }
-
-    public function username() : string
-    {
-        return $this->payload['username'];
+        return self::occur($ticket->aggregateId());
     }
 }
