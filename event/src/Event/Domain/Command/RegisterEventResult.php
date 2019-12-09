@@ -4,6 +4,7 @@ use Prooph\Common\Messaging\Command;
 
 use Event\Domain\Value\EventId;
 use Event\Domain\Value\EventType;
+use Event\Domain\Value\EventResult;
 
 
 final class RegisterEventResult extends Command
@@ -20,11 +21,11 @@ final class RegisterEventResult extends Command
     private $type;
 
     /**
-     * @var string
+     * @var \Event\Domain\Value\EventResult
      */
     private $result;
 
-    private function __construct(EventId $id, EventType $type, string $result)
+    private function __construct(EventId $id, EventType $type, EventResult $result)
     {
         $this->init();
 
@@ -33,7 +34,7 @@ final class RegisterEventResult extends Command
         $this->result = $result;
     }
 
-    public static function fromFeedEntry(EventId $id, EventType $type, string $result) : self
+    public static function fromFeedEntry(EventId $id, EventType $type, EventResult $result) : self
     {
         return new self($id, $type, $result);
     }
@@ -65,7 +66,7 @@ final class RegisterEventResult extends Command
 
         $this->id = EventId::fromString($payload['id']);
         $this->type = $eventType;
-        $this->result = $payload['result'];
+        $this->result = EventResult::fromExternalEventResult($payload['result']);
     }
 
     /**
@@ -76,7 +77,7 @@ final class RegisterEventResult extends Command
         return [
             'id' => $this->id->toString(),
             'type' => $this->type->toString(),
-            'result' => $this->result,
+            'result' => $this->result->toArray(),
         ];
     }
 }
