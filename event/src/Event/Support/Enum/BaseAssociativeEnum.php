@@ -45,7 +45,7 @@ abstract class BaseAssociativeEnum implements Enumerator
     /**
      * @param string $name
      *
-     * @return BaseAssociativeEnum|Enumerator
+     * @return static
      */
     public static function create(string $name): Enumerator
     {
