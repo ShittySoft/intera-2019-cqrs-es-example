@@ -4,16 +4,35 @@ namespace Event\Domain\Aggregate;
 
 use Prooph\EventSourcing\AggregateChanged;
 use Prooph\EventSourcing\AggregateRoot;
+use Ramsey\Uuid\Uuid;
+use Ticket\Domain\DomainEvent\BetRemoved;
+use Ticket\Domain\DomainEvent\BetCanceled;
 
-final class Event extends AggregateRoot
+final class Ticket extends AggregateRoot
 {
+    /**
+     * @property Ramsey\Uuid\Uuid $uuid;
+     * */
+    private $uuid;
+
     public function aggregateId() : string
     {
-        throw new \BadFunctionCallException('Not implemented');
+        return $this->uuid->toString();
     }
 
-    protected function apply(AggregateChanged $event) : void
-    {
-        throw new \BadFunctionCallException('Not implemented');
+    public function removeBet(string $name) {
+        $this->recordThat(BetRemoved::fromTicket($this->uuid, $name));
+    }
+
+    public function cancelBet(string $name) {
+        $this->recordThat(BetCanceled::onTicket($this->uuid, $name));
+    }
+
+    protected function whenBetRemoved(BetRemoved $event) {
+
+    }
+
+    protected function whenBetCanceled(BetCanceled $event) {
+
     }
 }

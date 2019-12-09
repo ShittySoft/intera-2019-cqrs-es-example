@@ -2,15 +2,17 @@
 
 declare(strict_types=1);
 
+namespace Balance\Domain\DomainEvent;
+
 use Prooph\EventSourcing\AggregateChanged;
 use Ramsey\Uuid\Uuid;
 
 class BalanceCreated extends AggregateChanged
 {
 
-    public static function forUser(UUid $balanceUuid, Uuid $userId, int $amount = 0) :self
+    public static function forUser(UUid $balanceUuid, Uuid $user, int $amount = 0) :self
     {
-        return self::occur($balanceUuid->toString(), ['user' => $userId->toString(), 'amount' => $amount]);
+        return self::occur($balanceUuid->toString(), ['user' => $user->toString(), 'amount' => $amount]);
     }
 
     public function amount() : int
@@ -18,7 +20,7 @@ class BalanceCreated extends AggregateChanged
         return $this->payload['amount'];
     }
 
-    public function userId() : Uuid
+    public function user() : Uuid
     {
         return Uuid::fromString($this->payload['user']);
     }
