@@ -3,7 +3,7 @@
   "description": "Voucher aggregate logic for the Intera CQRS+ES Workshop of December 2019",
   "license": "proprietary",
   "require": {
-    "php": "^7.1",
+    "php": "^7.2",
     "prooph/event-sourcing": "^5.6"
   },
   "autoload": {
@@ -12,7 +12,10 @@
     }
   },
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "platform": {
+      "php": "7.2.0"
+    }
   },
   "require-dev": {
     "vimeo/psalm": "^3.7"
