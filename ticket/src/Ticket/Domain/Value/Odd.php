@@ -26,6 +26,9 @@ final class Odd
     public static function fromInternalEventOdd(float $odd) : self
     {
         Assert::float($odd);
+        if ($odd < 1) {
+            throw new \InvalidArgumentException("Invalid value for odd");
+        }
 
         return new self($odd);
     }
