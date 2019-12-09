@@ -5,7 +5,7 @@ namespace Event\Domain\Aggregate;
 use Prooph\EventSourcing\AggregateChanged;
 use Prooph\EventSourcing\AggregateRoot;
 
-final class Event extends AggregateRoot
+final class Ticket extends AggregateRoot
 {
     public function aggregateId() : string
     {
