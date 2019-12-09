@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Balance\Domain\DomainEvent;
+
 use Prooph\EventSourcing\AggregateChanged;
 use Ramsey\Uuid\Uuid;
 
