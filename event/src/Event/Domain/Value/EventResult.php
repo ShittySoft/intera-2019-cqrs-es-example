@@ -22,7 +22,7 @@ final class EventResult
 
     private function __construct(array $eventResult)
     {
-        $this->id = $id;
+        $this->eventResult = $eventResult;
     }
 
     /** @param array<string, mixed> */
