@@ -10,13 +10,17 @@ final class TicketPlaced extends AggregateChanged
 {
     public static function withAmount(Uuid $ticket, TicketAmount $ticketAmount)
     {
+<<<<<<< HEAD
         self::occur($ticket, ["amount" => $ticketAmount->amount(),
          "currency" => $ticketAmount->currency()]);
+=======
+        self::occur($ticket->toString(), ["amount" => $ticketAmount->amount(), "currency" => $ticketAmount->currency()]);
+>>>>>>> b287d9855ede1fd0fe1137deaef90b6191534ee6
     }
 
-    public function amount() : string
+    public function amount() : TicketAmount
     {
-        return $this->payload['amount'];
+        return TicketAmount::withAmount($this->payload()["amount"]);
     }
 
 }
