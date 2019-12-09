@@ -4,7 +4,8 @@
   "license": "proprietary",
   "require": {
     "php": "^7.2",
-    "prooph/event-sourcing": "^5.6"
+    "prooph/event-sourcing": "^5.6",
+    "ramsey/uuid": "^3.9.1"
   },
   "autoload": {
     "psr-4": {
