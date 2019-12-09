@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Event\Domain\Value;
+namespace Ticket\Domain\Value;
 
 use Webmozart\Assert\Assert;
 /**
