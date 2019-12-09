@@ -25,7 +25,7 @@ final class EventResult
         $this->eventResult = $eventResult;
     }
 
-    /** @param array<string, mixed> */
+    /** @param array<string, mixed> $result */
     public static function fromExternalEventResult(array $result) : self
     {
         Assert::isMap($result);
