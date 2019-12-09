@@ -6,7 +6,7 @@ use Prooph\EventSourcing\AggregateChanged;
 use Rhumsaa\Uuid\Uuid;
 use Event\Domain\Value\EventId;
 
-  final class BettingDisabled extends AggregateChanged {
+  final class EventFinished extends AggregateChanged {
 
     public static function forEvent(EventId $event) {
       return self::occur($event->toString());
