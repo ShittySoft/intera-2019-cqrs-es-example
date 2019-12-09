@@ -4,12 +4,13 @@ namespace Ticket\Domain\DomainEvent;
 
 use Prooph\EventSourcing\AggregateChanged;
 use Ramsey\Uuid\Uuid;
+use Ticket\Domain\Value\TicketAmount;
 
 class TicketPlaced extends AggregateChanged
 {
-    public static function withAmount(Uuid $ticket, float $amount)
+    public static function withAmount(Uuid $ticket, TicketAmount $amount)
     {
-        self::occur($ticket, ["amount" => $amount]);
+        self::occur($ticket, ["amount" => $amount->toArray()]);
     }
 
     public function amount() : string
