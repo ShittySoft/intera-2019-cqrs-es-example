@@ -15,7 +15,7 @@ class BalanceCreated extends AggregateChanged
 
     public function balance() : int
     {
-        return $this->payload['balance'];
+        return $this->payload['amount'];
     }
 
     public function userid() : Uuid
