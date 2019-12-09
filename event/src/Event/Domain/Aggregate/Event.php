@@ -16,4 +16,24 @@ final class Event extends AggregateRoot
     {
         throw new \BadFunctionCallException('Not implemented');
     }
+
+    public function startBetting()
+    {
+
+    }
+
+    public function whenStartBetting()
+    {
+
+    }
+
+    public function finishBetting()
+    {
+
+    }
+
+    public function whenFinishBetting()
+    {
+
+    }
 }

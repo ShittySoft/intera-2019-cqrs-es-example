@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/event/src/Event" isTestSource="false" packagePrefix="Event\" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/amphp/amp" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/amphp/byte-stream" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/beberlei/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/felixfbecker/advanced-json-rpc" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/felixfbecker/language-server-protocol" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/marc-mabe/php-enum" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/netresearch/jsonmapper" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/ocramius/package-versions" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/openlss/lib-array2xml" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/phpdocumentor/reflection-common" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/phpdocumentor/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/phpdocumentor/type-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/prooph/common" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/prooph/event-sourcing" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/prooph/event-store" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/ramsey/uuid" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/sebastian/diff" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/symfony/polyfill-php73" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/vimeo/psalm" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/webmozart/glob" />
+      <excludeFolder url="file://$MODULE_DIR$/event/vendor/webmozart/path-util" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

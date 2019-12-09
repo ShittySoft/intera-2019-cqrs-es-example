@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="71364264-500b-4454-b817-6a5397d89c54" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/intera-2019-cqrs-es-example.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event/src/Event/Domain/Command/FinishBetting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event/src/Event/Domain/Command/StartBetting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event/src/Event/Domain/DomainEvent/BettingFinished.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event/src/Event/Domain/DomainEvent/BettingStarted.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/src/Event/Domain/Aggregate/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/event/src/Event/Domain/Aggregate/Event.php" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/event/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/event/vendor/composer" />
+      <path value="$PROJECT_DIR$/event/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/event/vendor/ocramius/package-versions" />
+      <path value="$PROJECT_DIR$/event/vendor/beberlei/assert" />
+      <path value="$PROJECT_DIR$/event/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/event/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/event/vendor/prooph/common" />
+      <path value="$PROJECT_DIR$/event/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/event/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/event/vendor/openlss/lib-array2xml" />
+      <path value="$PROJECT_DIR$/event/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/event/vendor/marc-mabe/php-enum" />
+      <path value="$PROJECT_DIR$/event/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/event/vendor/prooph/event-store" />
+      <path value="$PROJECT_DIR$/event/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/event/vendor/prooph/event-sourcing" />
+      <path value="$PROJECT_DIR$/event/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/event/vendor/vimeo/psalm" />
+      <path value="$PROJECT_DIR$/event/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/event/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/event/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/event/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/event/vendor/felixfbecker/advanced-json-rpc" />
+      <path value="$PROJECT_DIR$/event/vendor/felixfbecker/language-server-protocol" />
+      <path value="$PROJECT_DIR$/event/vendor/webmozart/path-util" />
+      <path value="$PROJECT_DIR$/event/vendor/webmozart/glob" />
+      <path value="$PROJECT_DIR$/event/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/event/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/event/vendor/amphp/byte-stream" />
+      <path value="$PROJECT_DIR$/event/vendor/amphp/amp" />
+      <path value="$PROJECT_DIR$/event/vendor/netresearch/jsonmapper" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1UjooDTWslQr2TwXH1sdw6jUZ3f" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="71364264-500b-4454-b817-6a5397d89c54" name="Default Changelist" comment="" />
+      <created>1575879537616</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575879537616</updated>
+      <workItem from="1575879539201" duration="1473000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
