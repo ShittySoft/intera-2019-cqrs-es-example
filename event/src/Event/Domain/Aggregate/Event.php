@@ -5,11 +5,13 @@ namespace Event\Domain\Aggregate;
 use Event\Domain\Command\DisableBetting;
 use Event\Domain\Command\EnableBetting;
 use Event\Domain\Command\ScheduleEvent;
+use Event\Domain\Command\StartEvent;
 use Event\Domain\DomainEvent\EventScheduled;
 use Event\Domain\DomainEvent\OddsCreated;
 use Event\Domain\Value\BettingDisabled;
 use Event\Domain\Value\BettingEnabled;
 use Event\Domain\Value\EventId;
+use Event\Domain\Value\EventStarted;
 use Prooph\EventSourcing\AggregateChanged;
 use Prooph\EventSourcing\AggregateRoot;
 use Webmozart\Assert\Assert;
@@ -52,6 +54,14 @@ final class Event extends AggregateRoot
 
         $this->recordThat(BettingDisabled::forEvent($this->id));
     }
+
+    public function startEvent(StartEvent $start) : void
+    {
+        Assert::true($this->bettingEnabled);
+
+        $this->recordThat(EventStarted::forEvent($this->id));
+    }
+
 
     public function aggregateId() : string
     {
