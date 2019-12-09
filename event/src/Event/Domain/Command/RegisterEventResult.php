@@ -16,27 +16,21 @@ final class RegisterEventResult extends Command
     private $id;
 
     /**
-     * @var \Event\Domain\Value\EventType
-     */
-    private $type;
-
-    /**
      * @var \Event\Domain\Value\EventResult
      */
     private $result;
 
-    private function __construct(EventId $id, EventType $type, EventResult $result)
+    private function __construct(EventId $id, EventResult $result)
     {
         $this->init();
 
         $this->id = $id;
-        $this->type = $type;
         $this->result = $result;
     }
 
-    public static function fromFeedEntry(EventId $id, EventType $type, EventResult $result) : self
+    public static function fromFeedEntry(EventId $id, EventResult $result) : self
     {
-        return new self($id, $type, $result);
+        return new self($id, $result);
     }
 
     /**
@@ -47,25 +41,9 @@ final class RegisterEventResult extends Command
         return $this->id;
     }
 
-    /**
-     * @return EventType
-     */
-    public function type(): EventType
-    {
-        return $this->type;
-    }
-
-
-
     protected function setPayload(array $payload): void
     {
-        /**
-         * @var EventType
-         */
-        $eventType = EventType::create($payload['type']);
-
         $this->id = EventId::fromString($payload['id']);
-        $this->type = $eventType;
         $this->result = EventResult::fromExternalEventResult($payload['result']);
     }
 
@@ -76,7 +54,6 @@ final class RegisterEventResult extends Command
     {
         return [
             'id' => $this->id->toString(),
-            'type' => $this->type->toString(),
             'result' => $this->result->toArray(),
         ];
     }
