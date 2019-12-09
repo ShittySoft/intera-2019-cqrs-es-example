@@ -12,20 +12,20 @@ final class CreateBalance extends Command
     /** @var Uuid */
     private $balance;
     /** @var Uuid */
-    private $userId;
+    private $user;
     /** @var integer */
     private $amount;
 
-    private function __construct(Uuid $balance, Uuid $userId, int $amount = 0)
+    private function __construct(Uuid $balance, Uuid $user, int $amount = 0)
     {
         $this->init();
         $this->balance = $balance;
-        $this->userId = $userId;
+        $this->user = $user;
         $this->amount = $amount;
     }
-    public static function forUser(Uuid $balance, Uuid $userId, int $amount) : self
+    public static function forUser(Uuid $balance, Uuid $user, int $amount) : self
     {
-        return new self($balance, $userId, $amount);
+        return new self($balance, $user, $amount);
     }
     public function balance() : Uuid
     {
@@ -36,9 +36,9 @@ final class CreateBalance extends Command
         return $this->amount;
     }
 
-    public function userId() : Uuid
+    public function user() : Uuid
     {
-        return $this->userId;
+        return $this->user;
     }
     /**
      * {@inheritDoc}
@@ -47,7 +47,7 @@ final class CreateBalance extends Command
     {
         return [
             'balance' => $this->balance->toString(),
-            'userId' => $this->userId,
+            'user' => $this->user,
             'amount' => $this->amount,
         ];
     }
@@ -57,7 +57,7 @@ final class CreateBalance extends Command
     protected function setPayload(array $payload) : void
     {
         $this->balance = Uuid::fromString($payload['balance']);
-        $this->userId = $payload['userId'];
+        $this->user = $payload['user'];
         $this->amount = $payload['amount'];
 
     }
