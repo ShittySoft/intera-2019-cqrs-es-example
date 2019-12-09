@@ -13,8 +13,8 @@ final class OddsCreated extends AggregateChanged
 {
     private const PK_ODDS = "odds";
 
-    public static function forEvent(EventId $id, array $odds) {
-        return self::occur($id->toString(), [self::PK_ODDS => $odds]);
+    public static function forEvent(EventId $id, EventOdds $odds) {
+        return self::occur($id->toString(), [self::PK_ODDS => $odds->toArray()]);
     }
 
     public function id() : EventId {

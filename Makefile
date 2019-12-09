@@ -9,4 +9,4 @@ voucher: ## run unit tests
 	cd voucher && composer install && vendor/bin/psalm
 
 event: ## run unit tests
-	cd event && composer install && vendor/bin/psalm
+	cd event && composer install && vendor/bin/psalm --show-info=false

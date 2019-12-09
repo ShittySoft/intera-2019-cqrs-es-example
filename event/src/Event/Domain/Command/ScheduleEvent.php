@@ -1,14 +1,16 @@
 <?php
 
-use Prooph\Common\Messaging\Command;
+declare(strict_types=1);
 
+namespace Event\Domain\Command;
+
+use Event\Domain\Value\EventOdds;
+use Prooph\Common\Messaging\Command;
 use Event\Domain\Value\EventId;
 use Event\Domain\Value\EventType;
 
-
 final class ScheduleEvent extends Command
 {
-
     /**
      * @var \Event\Domain\Value\EventId
      */
@@ -19,24 +21,29 @@ final class ScheduleEvent extends Command
      */
     private $type;
 
+    /**
+     * @var EventOdds
+     */
+    private $odds;
 
-    private function __construct(EventId $id, EventType $type)
+    private function __construct(EventId $id, EventType $type, EventOdds $odds)
     {
         $this->init();
 
-        $this->id = $id;
+        $this->id   = $id;
         $this->type = $type;
+        $this->odds = $odds;
     }
 
-    public static function fromFeedEntry(EventId $id, EventType $type) : self
+    public static function fromFeedEntry(EventId $id, EventType $type, EventOdds $odds) : self
     {
-        return new self($id, $type);
+        return new self($id, $type, $odds);
     }
 
     /**
      * @return EventId
      */
-    public function id(): EventId
+    public function id() : EventId
     {
         return $this->id;
     }
@@ -44,22 +51,21 @@ final class ScheduleEvent extends Command
     /**
      * @return EventType
      */
-    public function type(): EventType
+    public function type() : EventType
     {
         return $this->type;
     }
 
-
-
-    protected function setPayload(array $payload): void
+    public function odds() : EventOdds
     {
-        /**
-         * @var EventType
-         */
-        $eventType = EventType::create($payload['type']);
+        return $this->odds;
+    }
 
-        $this->id = EventId::fromString($payload['id']);
-        $this->type = $eventType;
+    protected function setPayload(array $payload) : void
+    {
+        $this->id   = EventId::fromString($payload['id']);
+        $this->type = EventType::create($payload['type']);
+        $this->odds = EventOdds::fromExternalEventResult($payload['odds']);
     }
 
     /**
@@ -68,8 +74,9 @@ final class ScheduleEvent extends Command
     public function payload() : array
     {
         return [
-            'id' => $this->id->toString(),
+            'id'   => $this->id->toString(),
             'type' => $this->type->toString(),
+            'odds' => $this->odds->toArray(),
         ];
     }
 }
