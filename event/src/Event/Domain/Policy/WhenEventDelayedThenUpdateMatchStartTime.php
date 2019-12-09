@@ -7,7 +7,7 @@ namespace Event\Domain\Policy;
 use Event\Domain\DomainEvent\EventResultInvalidated;
 use Prooph\Common\Messaging\Command;
 
-final class WhenBetEventCanceled
+final class WhenEventDelayedThenUpdateMatchStartTime
 {
     /**
      * @return Command []

@@ -7,7 +7,7 @@ namespace Event\Domain\Policy;
 use Event\Domain\DomainEvent\EventResultInvalidated;
 use Prooph\Common\Messaging\Command;
 
-final class WhenEventFinished
+final class WhenResultInvalidatedThenUndoBetResolved
 {
     /**
      * @return Command []
