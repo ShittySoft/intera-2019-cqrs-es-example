@@ -57,8 +57,6 @@ final class Event extends AggregateRoot
 
     public function startEvent(StartEvent $start) : void
     {
-        Assert::true($this->bettingEnabled);
-
         $this->recordThat(EventStarted::forEvent($this->id));
     }
 
