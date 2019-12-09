@@ -13,9 +13,9 @@ final class TicketPlaced extends AggregateChanged
         self::occur($ticket, ["amount" => $ticketAmount->amount(), "currency" => $ticketAmount->currency()]);
     }
 
-    public function amount() : string
+    public function amount() : TicketAmount
     {
-        return $this->payload['amount'];
+        return TicketAmount::withAmount($this->payload()["amount"]);
     }
 
 }
