@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Event\Domain\Policy;
 
-use Event\Domain\DomainEvent\EventResultInvalidated;
+use Event\Domain\DomainEvent\EventResultReceived;
 use Prooph\Common\Messaging\Command;
 
-final class WhenResultInvalidated
+final class WhenResultsReceivedThenFinishEvent
 {
     /**
      * @return Command []
      */
-    public function __invoke(EventResultInvalidated $eventResultInvalidated)
+    public function __invoke(EventResultReceived $eventResultReceived)
     {
         throw new \BadMethodCallException('Missing method implementation.');
     }
