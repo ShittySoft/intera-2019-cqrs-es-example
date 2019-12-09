@@ -37,6 +37,8 @@ final class TicketAmount
         if($amount <= 0) {
             throw new InvalidArgumentException("Amount must be positive integer");
         }
+
+        return new self($amount);
     }
 
     /**
